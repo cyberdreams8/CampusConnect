@@ -1,0 +1,28 @@
+/* Custom styling for CampusConnect */
+body {
+    font-family: Arial, sans-serif;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    color: #0073b1 !important;
+}
+
+.card-title {
+    font-weight: 600;
+    color: #0073b1;
+}
+
+.carousel-caption h5 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.carousel-caption p {
+    font-size: 1.1rem;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+

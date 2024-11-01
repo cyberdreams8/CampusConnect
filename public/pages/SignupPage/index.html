@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="left-panel"></div>
+        <div class="right-panel">
+            <h1>Create your Free Account</h1>
+            <form class="form">
+                <div class="input-group">
+                    <label for="role">Signup as</label>
+                    <select id="role" class="dropdown">
+                        <option value="student">Student</option>
+                        <option value="recruiter">Recruiter</option>
+                        <option value="tpo-admin">TPO Admin</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" placeholder="Enter your Username here">
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter your Password here">
+                </div>
+                <button type="submit" class="create-account">Create Account</button>
+                <p class="divider">- OR -</p>
+                <button type="button" class="social-button github">Sign up with GitHub</button>
+                <button type="button" class="social-button google">Sign up with Google</button>
+                <p class="login-prompt">Already have an account? <a href="#">Log in</a></p>
+            </form>
+            <p class="footer-text">Reserved directs to Leo Barreto</p>
+        </div>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Portal</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-sans">
+
+    <!-- Header Section -->
+    <header class="bg-blue-600 text-white py-4">
+        <h1 class="text-center text-3xl font-semibold">Job Search Portal</h1>
+    </header>
+
+    <!-- Search Filters Section -->
+    <section class="container mx-auto p-6 bg-white shadow-lg mt-6 rounded-lg">
+        <h2 class="text-2xl font-semibold text-gray-800 mb-4">Find Your Dream Job</h2>
+        <form class="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            <div>
+                <label for="company" class="block text-gray-600">Company Name</label>
+                <input type="text" id="company" name="company" class="w-full border-gray-300 rounded-md mt-2">
+            </div>
+            <div>
+                <label for="job-title" class="block text-gray-600">Job Title</label>
+                <input type="text" id="job-title" name="job-title" class="w-full border-gray-300 rounded-md mt-2">
+            </div>
+            <div>
+                <label for="experience" class="block text-gray-600">Years of Experience</label>
+                <input type="number" id="experience" name="experience" class="w-full border-gray-300 rounded-md mt-2">
+            </div>
+            <div>
+                <label for="job-type" class="block text-gray-600">Job Type</label>
+                <select id="job-type" name="job-type" class="w-full border-gray-300 rounded-md mt-2">
+                    <option value="">Select Type</option>
+                    <option value="internship">Internship</option>
+                    <option value="part-time">Part Time</option>
+                    <option value="full-time">Full Time</option>
+                </select>
+            </div>
+            <div>
+                <label for="cgpa" class="block text-gray-600">Minimum CGPA</label>
+                <input type="number" id="cgpa" name="cgpa" step="0.1" min="0" max="10" class="w-full border-gray-300 rounded-md mt-2">
+            </div>
+            <div class="flex items-end">
+                <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700">Search Jobs</button>
+            </div>
+        </form>
+    </section>
+
+    <!-- Job Listings Section -->
+    <section class="container mx-auto p-6 mt-6">
+        <h2 class="text-2xl font-semibold text-gray-800 mb-4">Job Listings</h2>
+
+        <!-- Job Card -->
+        <div class="bg-white shadow-md rounded-lg p-6 mb-6">
+            <div class="flex items-center">
+                <div class="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center mr-4">
+                    <img src="https://via.placeholder.com/64" alt="Company Logo" class="rounded-full">
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-800">Senior Frontend Developer</h3>
+                    <p class="text-gray-600">Photosnap • Full Time • USA Only</p>
+                </div>
+            </div>
+            <div class="mt-4">
+                <p class="text-gray-700">Required Skills: HTML, CSS, JavaScript</p>
+                <div class="flex mt-2 space-x-2 text-sm">
+                    <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded">Frontend</span>
+                    <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded">Senior</span>
+                    <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded">USA Only</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add more job cards as needed -->
+    </section>
+
+</body>
+</html>
