@@ -4,34 +4,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job Portal</title>
+    <link href="styles.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100 font-sans">
 
     <!-- Header Section -->
-    <header class="bg-blue-600 text-white py-4">
-        <h1 class="text-center text-3xl font-semibold">Job Search Portal</h1>
+    <header class="header">
+        <h1>Job Search Portal</h1>
     </header>
 
     <!-- Search Filters Section -->
-    <section class="container mx-auto p-6 bg-white shadow-lg mt-6 rounded-lg">
-        <h2 class="text-2xl font-semibold text-gray-800 mb-4">Find Your Dream Job</h2>
-        <form class="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+    <section class="search-section">
+        <h2>Find Your Dream Job</h2>
+        <form class="search-form" id="jobSearchForm">
             <div>
-                <label for="company" class="block text-gray-600">Company Name</label>
-                <input type="text" id="company" name="company" class="w-full border-gray-300 rounded-md mt-2">
+                <label for="company">Company Name</label>
+                <input type="text" id="company" name="company" class="input-field">
             </div>
             <div>
-                <label for="job-title" class="block text-gray-600">Job Title</label>
-                <input type="text" id="job-title" name="job-title" class="w-full border-gray-300 rounded-md mt-2">
+                <label for="job-title">Job Title</label>
+                <select id="job-title" name="job-title" class="input-field">
+                    <option value="">Select a Job Title</option>
+                    <optgroup label="Software Engineering/Development">
+                        <option value="Full-stack Development">Full-stack Development</option>
+                        <option value="Backend Development">Backend Development</option>
+                        <option value="Frontend Development">Frontend Development</option>
+                        <option value="Mobile App Development">Mobile App Development</option>
+                        <option value="Cloud Engineering">Cloud Engineering</option>
+                    </optgroup>
+                    <optgroup label="Data Science & Analytics">
+                        <option value="Data Scientist">Data Scientist</option>
+                        <option value="Data Engineer">Data Engineer</option>
+                        <option value="Machine Learning Engineer">Machine Learning Engineer</option>
+                        <option value="Business Intelligence Analyst">Business Intelligence Analyst</option>
+                        <option value="Data Analyst">Data Analyst</option>
+                    </optgroup>
+                    <optgroup label="Cybersecurity">
+                        <option value="Security Engineer">Security Engineer</option>
+                        <option value="Security Analyst">Security Analyst</option>
+                        <option value="Penetration Tester">Penetration Tester</option>
+                        <option value="Security Architect">Security Architect</option>
+                        <option value="Incident Response Specialist">Incident Response Specialist</option>
+                    </optgroup>
+                    <optgroup label="Cloud Computing">
+                        <option value="Cloud Architect">Cloud Architect</option>
+                        <option value="DevOps Engineer">DevOps Engineer</option>
+                        <option value="Site Reliability Engineer (SRE)">Site Reliability Engineer (SRE)</option>
+                        <option value="Cloud Security Engineer">Cloud Security Engineer</option>
+                        <option value="Cloud Solutions Architect">Cloud Solutions Architect</option>
+                    </optgroup>
+                    <optgroup label="Artificial Intelligence/ML">
+                        <option value="AI Research Scientist">AI Research Scientist</option>
+                        <option value="ML Engineer">ML Engineer</option>
+                        <option value="NLP Engineer">NLP Engineer</option>
+                        <option value="Computer Vision Engineer">Computer Vision Engineer</option>
+                        <option value="AI Solutions Architect">AI Solutions Architect</option>
+                    </optgroup>
+                    <optgroup label="DevOps & Infrastructure">
+                        <option value="Platform Engineer">Platform Engineer</option>
+                        <option value="Infrastructure Engineer">Infrastructure Engineer</option>
+                        <option value="Release Engineer">Release Engineer</option>
+                        <option value="Automation Engineer">Automation Engineer</option>
+                    </optgroup>
+                </select>
             </div>
             <div>
-                <label for="experience" class="block text-gray-600">Years of Experience</label>
-                <input type="number" id="experience" name="experience" class="w-full border-gray-300 rounded-md mt-2">
+                <label for="experience">Minimum Years of Experience</label>
+                <input type="number" id="experience" name="experience" class="input-field" min="0">
             </div>
             <div>
-                <label for="job-type" class="block text-gray-600">Job Type</label>
-                <select id="job-type" name="job-type" class="w-full border-gray-300 rounded-md mt-2">
+                <label for="job-type">Job Type</label>
+                <select id="job-type" name="job-type" class="input-field">
                     <option value="">Select Type</option>
                     <option value="internship">Internship</option>
                     <option value="part-time">Part Time</option>
@@ -39,42 +83,21 @@
                 </select>
             </div>
             <div>
-                <label for="cgpa" class="block text-gray-600">Minimum CGPA</label>
-                <input type="number" id="cgpa" name="cgpa" step="0.1" min="0" max="10" class="w-full border-gray-300 rounded-md mt-2">
+                <label for="cgpa">Minimum CGPA</label>
+                <input type="number" id="cgpa" name="cgpa" step="0.1" min="0" max="10" class="input-field">
             </div>
-            <div class="flex items-end">
-                <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700">Search Jobs</button>
+            <div class="search-button-container">
+                <button type="submit" class="search-button">Search Jobs</button>
             </div>
         </form>
     </section>
 
     <!-- Job Listings Section -->
-    <section class="container mx-auto p-6 mt-6">
-        <h2 class="text-2xl font-semibold text-gray-800 mb-4">Job Listings</h2>
-
-        <!-- Job Card -->
-        <div class="bg-white shadow-md rounded-lg p-6 mb-6">
-            <div class="flex items-center">
-                <div class="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center mr-4">
-                    <img src="https://via.placeholder.com/64" alt="Company Logo" class="rounded-full">
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold text-gray-800">Senior Frontend Developer</h3>
-                    <p class="text-gray-600">Photosnap • Full Time • USA Only</p>
-                </div>
-            </div>
-            <div class="mt-4">
-                <p class="text-gray-700">Required Skills: HTML, CSS, JavaScript</p>
-                <div class="flex mt-2 space-x-2 text-sm">
-                    <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded">Frontend</span>
-                    <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded">Senior</span>
-                    <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded">USA Only</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Add more job cards as needed -->
+    <section class="job-listing-section" id="jobListings">
+        <h2>Job Listings</h2>
+        <!-- Job cards will be dynamically inserted here -->
     </section>
 
+    <script src="script.js"></script>
 </body>
 </html>
