@@ -9,15 +9,14 @@
 </head>
 <body class="bg-gray-100 font-sans">
 
-    <!-- Header Section -->
-    <header class="header">
-        <h1>Job Search Portal</h1>
+    <header class="p-6 bg-blue-600 text-white text-center shadow-md">
+        <h1 class="text-3xl font-bold">Job Search Portal</h1>
     </header>
 
     <!-- Search Filters Section -->
-    <section class="search-section">
-        <h2>Find Your Dream Job</h2>
-        <form class="search-form" id="jobSearchForm">
+    <section class="max-w-5xl mx-auto mt-8 p-6 bg-white rounded-lg shadow-md">
+        <h2 class="text-2xl font-semibold mb-6">Find Your Dream Job</h2>
+        <form id="jobSearchForm" class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
                 <label for="company">Company Name</label>
                 <input type="text" id="company" name="company" class="input-field">
@@ -87,15 +86,21 @@
                 <input type="number" id="cgpa" name="cgpa" step="0.1" min="0" max="10" class="input-field">
             </div>
             <div class="search-button-container">
-                <button type="submit" class="search-button">Search Jobs</button>
-            </div>
+                <button type="submit" id="search-button" class="mt-4 col-span-1 md:col-span-2 bg-blue-600 text-white py-2 px-4 rounded">Search Jobs</button>            </div>
         </form>
     </section>
 
     <!-- Job Listings Section -->
-    <section class="job-listing-section" id="jobListings">
-        <h2>Job Listings</h2>
+    <section class="max-w-5xl mx-auto mt-8 p-6 bg-white rounded-lg shadow-md" id="jobListings">
+        <h2 class="text-2xl font-semibold mb-6">Job Listings</h2>
         <!-- Job cards will be dynamically inserted here -->
+        <div id="jobCardsContainer" class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3"></div>
+         <!-- Pagination controls -->
+         <div class="mt-6 flex justify-center items-center space-x-4" id="paginationControls">
+            <button id="prevButton" class="bg-blue-500 text-white py-2 px-4 rounded" disabled>Previous</button>
+            <span id="pageIndicator" class="text-gray-700"></span>
+            <button id="nextButton" class="bg-blue-500 text-white py-2 px-4 rounded">Next</button>
+        </div>
     </section>
 
     <script src="script.js"></script>

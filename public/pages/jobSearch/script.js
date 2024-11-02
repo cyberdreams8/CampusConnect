@@ -1,52 +1,79 @@
-document.getElementById('search-form').addEventListener('submit', async function (event) {
-    event.preventDefault(); // Prevent the default form submission
+document.addEventListener("DOMContentLoaded", function () {
+    const jobCardsContainer = document.getElementById('jobCardsContainer');
+    const paginationControls = document.getElementById('paginationControls');
+    const pageIndicator = document.getElementById('pageIndicator');
+    let currentPage = 1;
+    const jobsPerPage = 5;
 
-    // Collect form data including the company name
-    const companyName = document.getElementById('company').value;
-    const jobTitle = document.getElementById('job-title').value;
-    const experience = document.getElementById('experience').value;
-    const jobType = document.getElementById('job-type').value;
-    const cgpa = document.getElementById('cgpa').value;
+    async function performSearch() {
+        const jobTitle = document.getElementById('job-title').value;
+        const experience = document.getElementById('experience').value;
+        const jobType = document.getElementById('job-type').value;
+        const cgpa = document.getElementById('cgpa').value;
+        const companyName = document.getElementById('company').value;
 
-    try {
-        // Build the query string including all parameters
-        const response = await fetch(`/api/jobs?jobTitle=${encodeURIComponent(jobTitle)}&experience=${encodeURIComponent(experience)}&jobType=${encodeURIComponent(jobType)}&minCGPA=${encodeURIComponent(cgpa)}&company=${encodeURIComponent(companyName)}`);
+        try {
+            const response = await fetch(`/api/jobs?jobTitle=${encodeURIComponent(jobTitle)}&experience=${encodeURIComponent(experience)}&jobType=${encodeURIComponent(jobType)}&minCGPA=${encodeURIComponent(cgpa)}&company=${encodeURIComponent(companyName)}`);
+            if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
 
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
+            const jobs = await response.json();
+            displayJobs(jobs);
+        } catch (error) {
+            console.error('Error fetching job listings:', error);
+            alert('An error occurred while fetching job listings.');
         }
+    }
 
-        const jobListings = await response.json();
+    function displayJobs(jobs) {
+        jobCardsContainer.innerHTML = '';
+        const totalPages = Math.ceil(jobs.length / jobsPerPage);
+        const startIdx = (currentPage - 1) * jobsPerPage;
+        const paginatedJobs = jobs.slice(startIdx, startIdx + jobsPerPage);
 
-        // Clear previous listings
-        const listingsContainer = document.querySelector('.job-listing-section'); // Ensure this selects the correct container
-        listingsContainer.innerHTML = ''; // Clear existing listings
-
-        // Dynamically create job cards based on the search results
-        jobListings.forEach(job => {
+        paginatedJobs.forEach(job => {
             const jobCard = document.createElement('div');
             jobCard.classList.add('job-card');
             jobCard.innerHTML = `
                 <div class="job-card-header">
-                    <div class="logo-placeholder">
-                        <img src="https://via.placeholder.com/64" alt="Company Logo">
-                    </div>
-                    <div>
-                        <h3>${job.Job_Title}</h3>
-                        <p>${job.Company_Name} • ${job.JobType} • ${job.Location}</p>
-                    </div>
+                    <h3>${job.Job_Title}</h3>
+                    <p>${job.Company_Name} • ${job.JobType} • ${job.YoE} years of experience</p>
                 </div>
                 <div class="job-details">
-                    <p>Required Skills: ${job.Required_Skills}</p>
+                    <p>Base Package: $${job.Base_Package}K</p>
                     <div class="tags">
-                        <span class="tag">Experience: ${job.YoE} years</span>
                         <span class="tag">CGPA: ${job.MinCGPA}</span>
+                        <span class="tag">Closing by: ${job.Closing_Deadline}</span>
                     </div>
                 </div>
             `;
-            listingsContainer.appendChild(jobCard);
+            jobCardsContainer.appendChild(jobCard);
         });
-    } catch (error) {
-        console.error('An error occurred while fetching job listings:', error);
+
+        updatePaginationControls(totalPages);
     }
+
+    function updatePaginationControls(totalPages) {
+        paginationControls.style.display = totalPages > 1 ? 'flex' : 'none';
+        pageIndicator.textContent = `Page ${currentPage} of ${totalPages}`;
+        document.getElementById('prevButton').disabled = currentPage === 1;
+        document.getElementById('nextButton').disabled = currentPage === totalPages;
+    }
+
+    document.getElementById('prevButton').addEventListener('click', () => {
+        if (currentPage > 1) {
+            currentPage--;
+            performSearch();
+        }
+    });
+
+    document.getElementById('nextButton').addEventListener('click', () => {
+        currentPage++;
+        performSearch();
+    });
+
+    document.getElementById('jobSearchForm').addEventListener('submit', function (event) { // Use 'jobSearchForm' instead of 'search-form'
+        event.preventDefault();
+        currentPage = 1;
+        performSearch();
+    });
 });
