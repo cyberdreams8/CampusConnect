@@ -17,7 +17,13 @@ document.getElementById('loginForm').addEventListener('submit', async function (
 
     if (response.ok) {
         alert('Login successful!');
-        // Redirect or perform further actions based on user role
+        
+        // Redirect based on the user role using the redirectUrl from the response
+        if (data.redirectUrl) {
+            window.location.href = data.redirectUrl;
+        } else {
+            alert('No redirect URL found.'); // Optional: handle cases where no URL is provided
+        }
     } else {
         alert(data.message || 'Login failed');
     }

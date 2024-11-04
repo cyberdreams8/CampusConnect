@@ -5,11 +5,20 @@ const db = require('./config/db'); // Ensure db is imported for query execution
 const studentRoutes = require('./routes/studentRoutes');
 const jobSearchRoutes = require('./routes/jobSearchRoutes'); // Import job search routes
 const loginRoutes = require('./routes/loginRoutes'); // Import the login routes
+const session = require('express-session');
 
 dotenv.config();
+
 const app = express();
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '../public'))); // Serve static files from the public directory
+
+app.use(session({
+    secret: process.env.SESSION_SECRET || 'your_secret_key', // store in environment variable for security
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false } // set to true if using HTTPS
+}));
 
 // Register routes
 app.use('/api/students', studentRoutes); // Register students route
@@ -35,4 +44,16 @@ app.get('/users', (req, res) => {
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
+});
+
+
+function isAuthenticated(req, res, next) {
+    if (req.session.user) {
+        return next();
+    }
+    res.status(401).json({ success: false, message: 'Unauthorized access' });
+}
+
+app.get('/api/protected', isAuthenticated, (req, res) => {
+    res.json({ message: `Welcome, ${req.session.user.username}!`, role: req.session.user.role });
 });
