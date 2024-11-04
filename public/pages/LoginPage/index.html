@@ -17,13 +17,14 @@
         </div>
         <div class="right-panel">
             <h1>Login</h1>
-            <form class="form">
+            <form class="form" id="loginForm">
                 <div class="input-group">
                     <label for="role">Login as</label>
-                    <select id="role" class="dropdown">
+                    <select id="role" class="dropdown" required>
+                        <option value="">Select Role</option>
                         <option value="student">Student</option>
                         <option value="recruiter">Recruiter</option>
-                        <option value="tpo-admin">TPO Admin</option>
+                        <option value="admin">Admin</option>
                     </select>
                 </div>
                 <div class="input-group">

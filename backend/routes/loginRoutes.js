@@ -1,10 +1,13 @@
-// backend/routes/loginRoutes.js
 const express = require('express');
 const router = express.Router();
 const db = require('../config/db');
 
-router.post('/login', async (req, res) => {
+router.post('/', async (req, res) => {
     const { username, password, role } = req.body;
+
+    if (!username || !password || !role) {
+        return res.status(400).json({ success: false, message: 'Role, Username, and Password are required' });
+    }
 
     try {
         const query = `
@@ -14,7 +17,7 @@ router.post('/login', async (req, res) => {
         const [results] = await db.query(query, [username, password, role]);
 
         if (results.length > 0) {
-            res.status(200).json({ success: true, message: 'Login successful' });
+            res.status(200).json({ success: true, message: 'Login successful', user: results[0] });
         } else {
             res.status(401).json({ success: false, message: 'Invalid username or password' });
         }
@@ -24,4 +27,3 @@ router.post('/login', async (req, res) => {
 });
 
 module.exports = router;
-

@@ -1,4 +1,3 @@
-// backend/controllers/studentController.js
 const db = require('../config/db');
 
 exports.getAllStudents = async (req, res) => {
@@ -9,4 +8,3 @@ exports.getAllStudents = async (req, res) => {
         res.status(500).json({ error: 'Database error occurred' });
     }
 };
-
