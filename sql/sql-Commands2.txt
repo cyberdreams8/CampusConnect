@@ -1,0 +1,166 @@
+
+-- Drop existing tables if they exist
+DROP TABLE IF EXISTS Applications;
+DROP TABLE IF EXISTS Vacancies;
+DROP TABLE IF EXISTS Recruiters;
+DROP TABLE IF EXISTS Student;
+DROP TABLE IF EXISTS Users;
+
+-- Table: Student
+CREATE TABLE Student (
+    Uid CHAR(10) PRIMARY KEY,
+    First_Name VARCHAR(50),
+    Middle_Name VARCHAR(50),
+    Last_Name VARCHAR(50),
+    DOB DATE,
+    Gender CHAR(1) CHECK (Gender IN ('M', 'F')),
+    Branch VARCHAR(50),
+    Graduation_Year YEAR(4),
+    CGPA DECIMAL(3,2),
+    Email VARCHAR(50) UNIQUE,
+    Contact_Number CHAR(10),
+    Job_Search_Keywords VARCHAR(150),
+    About_Me VARCHAR(1000)
+);
+
+-- Table: Recruiters
+CREATE TABLE Recruiters (
+    Recruiter_id CHAR(10) PRIMARY KEY,
+    Company_Name VARCHAR(50),
+    Contact_No CHAR(10),
+    Company_Email VARCHAR(50) UNIQUE,
+    Company_Location VARCHAR(50)
+);
+
+-- Table: Vacancies
+CREATE TABLE Vacancies (
+    Vacancy_id CHAR(10) PRIMARY KEY,
+    Recruiter_id CHAR(10),
+    Job_Title VARCHAR(50),
+    Base_Package DECIMAL(8,2),
+    Number_Of_Positions SMALLINT,
+    YoE SMALLINT,
+    Closing_Deadline DATE,
+    Job_Description TEXT,
+    MinCGPA FLOAT CHECK (MinCGPA >= 0.0 AND MinCGPA <= 10.0),
+    JobType ENUM('Full-time', 'Part-time', 'Internship'),
+    FOREIGN KEY (Recruiter_id) REFERENCES Recruiters(Recruiter_id)
+);
+
+-- Table: Applications
+CREATE TABLE Applications (
+    Application_id CHAR(10) PRIMARY KEY,
+    Student_id CHAR(10),
+    Vacancy_id CHAR(10),
+    Status VARCHAR(10) CHECK (Status IN ('Accepted', 'Rejected', 'Pending')),
+    Deadline DATE,
+    FOREIGN KEY (Student_id) REFERENCES Student(Uid),
+    FOREIGN KEY (Vacancy_id) REFERENCES Vacancies(Vacancy_id)
+);
+
+-- Table: Users
+CREATE TABLE Users (
+    username VARCHAR(50) PRIMARY KEY,
+    password VARCHAR(50),  -- no hashing/encryption applied
+    role ENUM('admin', 'student', 'recruiter') NOT NULL,
+    Uid CHAR(10),  -- nullable for recruiters
+    Recruiter_id CHAR(10),  -- nullable for students
+    FOREIGN KEY (Uid) REFERENCES Student(Uid),
+    FOREIGN KEY (Recruiter_id) REFERENCES Recruiters(Recruiter_id)
+);
+
+-- Populate the Student table
+INSERT INTO Student (Uid, First_Name, Middle_Name, Last_Name, DOB, Gender, Branch, Graduation_Year, CGPA, Email, Contact_Number, Job_Search_Keywords, About_Me)
+VALUES 
+('2023300150', 'Alice', 'B', 'Smith', '2005-01-01', 'F', 'CE', 2023, 8.75, 'alice.smith@example.com', '1234567890', 'AI, ML, Data Science', 
+'Passionate about AI and machine learning, with a keen interest in building predictive models. Experienced in Python and data visualization, and eager to work on challenging AI-driven projects.'),
+('2023300151', 'Nethra', 'C', 'Nayak', '2005-05-15', 'M', 'CSE', 2022, 8.60, 'nethra.nayak@example.com', '2345678901', 'Embedded Systems, Robotics', 
+'Fascinated by robotics and embedded systems. Experienced in circuit design and microcontrollers, aiming to innovate in the field of automation and robotics.'),
+('2023300152', 'Jill', 'D', 'Mistry', '2005-03-10', 'F', 'CSE', 2024, 8.40, 'jill.mistry@example.com', '3456789012', 'Design, UI/UX', 
+'Aspiring to design intuitive and efficient interfaces. Strong background in graphic design and user experience, with a focus on creating user-friendly applications that solve real-world problems.'),
+('2023300153', 'Devansh', 'E', 'Mhatre', '2005-11-22', 'M', 'CSE', 2023, 8.80, 'devansh.mhatre@example.com', '4567890123', 'Sustainable Infrastructure', 
+'Interested in sustainable infrastructure solutions. Passionate about reducing environmental impact through technology and innovation, with knowledge in green building practices and energy-efficient design.'),
+('2023300154', 'Eva', 'F', 'Miller', '2005-08-30', 'F', 'EXTC', 2021, 9.10, 'eva.miller@example.com', '5678901234', 'Cybersecurity', 
+'Enthusiastic about cybersecurity and protecting data integrity. Skilled in network security protocols, with experience in threat analysis and vulnerability assessment. Driven to secure digital systems from malicious attacks.');
+
+-- Populate the Recruiters table
+INSERT INTO Recruiters (Recruiter_id, Company_Name, Contact_No, Company_Email, Company_Location)
+VALUES 
+('2000000001', 'Infosys', '7890123456', 'careers@infosys.com', 'Bengaluru'),
+('2000000002', 'Tata Consultancy Services', '8901234567', 'recruitment@tcs.com', 'Mumbai'),
+('2000000003', 'Wipro', '9012345678', 'jobs@wipro.com', 'Bengaluru'),
+('2000000004', 'HCL Technologies', '6789012345', 'careers@hcl.com', 'Noida'),
+('2000000005', 'Tech Mahindra', '5678901234', 'jobs@techmahindra.com', 'Pune');
+
+
+-- Populate the Vacancies table with 10 entries
+INSERT INTO Vacancies (Vacancy_id, Recruiter_id, Job_Title, Base_Package, Number_Of_Positions, YoE, Closing_Deadline, MinCGPA, JobType)
+VALUES 
+('3000000001', '2000000001', 'Full-stack Developer', 24.00, 5, 1, '2023-12-01', 8.50, 'Full-time'),
+('3000000002', '2000000002', 'Backend Developer', 20.50, 3, 2, '2023-11-15', 8.00, 'Full-time'),
+('3000000003', '2000000003', 'Frontend Developer', 16.00, 2, 1, '2023-11-30', 7.50, 'Part-time'),
+('3000000004', '2000000004', 'Data Analyst', 12.50, 4, 1, '2023-12-10', 7.00, 'Internship'),
+('3000000005', '2000000005', 'Cloud Engineer', 10.50, 2, 0, '2023-11-25', 7.50, 'Full-time'),
+('3000000006', '2000000001', 'Machine Learning Engineer', 25.00, 4, 2, '2023-12-20', 8.50, 'Full-time'),
+('3000000007', '2000000002', 'Robotics Engineer', 22.00, 2, 3, '2023-11-29', 8.00, 'Full-time'),
+('3000000008', '2000000003', 'UI/UX Designer', 15.00, 1, 1, '2023-12-05', 7.50, 'Internship'),
+('3000000009', '2000000004', 'Data Scientist', 20.00, 3, 2, '2023-12-15', 7.00, 'Full-time'),
+('3000000010', '2000000005', 'Network Security Specialist', 18.00, 3, 1, '2023-12-30', 7.50, 'Full-time');
+
+-- Populate the Applications table with 10 entries
+INSERT INTO Applications (Application_id, Student_id, Vacancy_id, Status, Deadline)
+VALUES 
+('4000000001', '2023300150', '3000000001', 'Pending', '2023-10-01'),
+('4000000002', '2023300151', '3000000002', 'Accepted', '2023-09-15'),
+('4000000003', '2023300152', '3000000003', 'Rejected', '2023-10-10'),
+('4000000004', '2023300153', '3000000004', 'Pending', '2023-10-20'),
+('4000000005', '2023300154', '3000000005', 'Pending', '2023-10-25'),
+('4000000006', '2023300150', '3000000006', 'Pending', '2023-10-30'),
+('4000000007', '2023300151', '3000000007', 'Pending', '2023-11-05'),
+('4000000008', '2023300152', '3000000008', 'Pending', '2023-11-12'),
+('4000000009', '2023300153', '3000000009', 'Pending', '2023-11-18'),
+('4000000010', '2023300154', '3000000010', 'Pending', '2023-11-25');
+
+-- Populate the Users table
+INSERT INTO Users (username, password, role, Uid, Recruiter_id)
+VALUES 
+('admin_user', 'Admin@123', 'admin', NULL, NULL),
+('student_user1', 'Student@123', 'student', '2023300150', NULL),
+('student_user2', 'Student@123', 'student', '2023300151',
+
+ NULL),
+('student_user3', 'Student@123', 'student', '2023300152', NULL),
+('student_user4', 'Student@123', 'student', '2023300153', NULL),
+('student_user5', 'Student@123', 'student', '2023300154', NULL),
+('recruiter_user1', 'Recruiter@123', 'recruiter', NULL, '2000000001'),
+('recruiter_user2', 'Recruiter@123', 'recruiter', NULL, '2000000002'),
+('recruiter_user3', 'Recruiter@123', 'recruiter', NULL, '2000000003'),
+('recruiter_user4', 'Recruiter@123', 'recruiter', NULL, '2000000004'),
+('recruiter_user5', 'Recruiter@123', 'recruiter', NULL, '2000000005');
+
+-- Create Roles
+CREATE ROLE IF NOT EXISTS 'admin_role';
+CREATE ROLE IF NOT EXISTS 'student_role';
+CREATE ROLE IF NOT EXISTS 'recruiter_role';
+
+-- Grant privileges to roles
+GRANT ALL PRIVILEGES ON placement_system.* TO 'admin_role';
+GRANT SELECT, INSERT, UPDATE ON placement_system.Student TO 'student_role';
+GRANT SELECT, INSERT ON placement_system.Applications TO 'student_role';
+GRANT SELECT, INSERT, UPDATE ON placement_system.Recruiters TO 'recruiter_role';
+GRANT SELECT, INSERT, UPDATE ON placement_system.Vacancies TO 'recruiter_role';
+GRANT SELECT ON placement_system.Applications TO 'recruiter_role';
+
+-- Create users with strong passwords
+CREATE USER 'admin_user'@'localhost' IDENTIFIED BY 'Admin@123';
+CREATE USER 'student_user'@'localhost' IDENTIFIED BY 'Student@123';
+CREATE USER 'recruiter_user'@'localhost' IDENTIFIED BY 'Recruiter@123';
+
+-- Assign roles to users
+GRANT 'admin_role' TO 'admin_user'@'localhost';
+GRANT 'student_role' TO 'student_user'@'localhost';
+GRANT 'recruiter_role' TO 'recruiter_user'@'localhost';
+
+-- Apply privileges
+FLUSH PRIVILEGES;
+

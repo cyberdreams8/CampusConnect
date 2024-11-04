@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles1.css">
+    <title>Update Recruiter</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <button id="logout"><a href="logout.html">Logout</a></button>
+            <h1>Update Recruiter</h1>
+            <nav>
+                <ul>
+                    <li><a href="home.html">Dashboard</a></li>
+                    <li><a href="add-job.html">Post jobs</a></li>
+                    <li><a href="view-applications.html">View Student applications</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h2>Edit Recruiter Details</h2>
+            <form id="updateRecruiterForm">
+                <label for="recruiterId">Recruiter ID:</label>
+                <input type="text" id="recruiterId" name="recruiterId" required readonly>
+
+                
+                    <label for="companyName">Company Name:</label>
+                    <input type="text" id="companyName" name="companyName" required>
+    
+                    <label for="contactNo">Contact Number:</label>
+                    <input type="tel" id="contactNo" name="contactNo" required>
+    
+                    <label for="companyMail">Company Email:</label>
+                    <input type="email" id="companyMail" name="companyMail" required>
+    
+                    <label for="companyLocation">Company Location:</label>
+                    <input type="text" id="companyLocation" name="companyLocation" required>
+    
+                    <button type="submit">Update Recruiter</button>
+                </form>
+            </div>
+        </main>
+    
+        <footer>
+            <div class="container">
+                <p>&copy; 2024 Your Company. All rights reserved.</p>
+            </div>
+        </footer>
+    </body>
+    </html>
+    

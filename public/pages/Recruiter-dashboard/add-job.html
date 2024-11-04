@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles1.css">
+    <title>Add Job Posting</title>
+</head>
+<body>
+    <header>
+        <button id="logout"><a href="logout.html">Logout</a></button>
+        <h1>Add Job Posting</h1>
+        <nav>
+            <ul>
+                <li><a href="home.html">Dashboard</a></li>
+                <li><a href="edit-recruiter-details.html">Edit Company Profile</a></li>
+                <li><a href="view-applications.html">View Student applications</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <form action="/add-job" method="POST">
+            <label for="job-title">Job Title:</label>
+            <input type="text" id="job-title" name="job_title" required>
+
+            <label for="base-package">Base Package:</label>
+            <input type="number" id="base-package" name="base_package" required>
+
+            <label for="number-of-positions">Number of Positions:</label>
+            <input type="number" id="number-of-positions" name="number_of_positions" required>
+
+            <label for="yoe">Years of Experience:</label>
+            <input type="number" id="yoe" name="yoe" required>
+
+            <label for="closing-deadline">Closing Deadline:</label>
+            <input type="date" id="closing-deadline" name="closing_deadline" required>
+
+            <label for="job-description">Job Description:</label>
+            <textarea id="job-description" name="job_description"></textarea>
+
+            <label for="job-type">Job Type:</label>
+            <select id="job-type" name="job_type">
+                <option value="full-time">Full-Time</option>
+                <option value="part-time">Part-Time</option>
+                <option value="internship">Internship</option>
+            </select>
+
+            <button type="submit">Post Job</button>
+        </form>
+    </main>
+    <footer>
+        <p>&copy; 2024 Placement Management System</p>
+    </footer>
+</body>
+</html>

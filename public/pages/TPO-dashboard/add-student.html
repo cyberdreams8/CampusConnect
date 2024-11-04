@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles1.css">
+    <script src="add-student.js"></script>
+
+    <title>Add Student</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <button id="logout"><a href="logout.html">Logout</a></button>
+            <h1>Add Student</h1>
+            <nav>
+                <ul>
+                    <li><a href="home.html">Dashboard</a></li>
+                    <li><a href="view-recruiter.html">View/Add Recruiters</a></li>
+                    <li><a href="">View Vacancies</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h2>Enter Student Details</h2>
+            <form id="addStudentForm">
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" name="firstName" required>
+
+                <label for="middleName">Middle Name:</label>
+                <input type="text" id="middleName" name="middleName">
+
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" name="lastName" required>
+
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob" required>
+
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender" required>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+
+                <label for="branch">Branch:</label>
+                <input type="text" id="branch" name="branch" required>
+
+                <label for="graduationYear">Graduation Year:</label>
+                <input type="number" id="graduationYear" name="graduationYear" required>
+
+                <label for="cgpa">CGPA:</label>
+                <input type="number" step="0.01" id="cgpa" name="cgpa" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="contactNumber">Contact Number:</label>
+                <input type="tel" id="contactNumber" name="contactNumber" required>
+
+                <button type="submit">Add Student</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Placement Management System</p>
+    </footer>
+</body>
+</html>

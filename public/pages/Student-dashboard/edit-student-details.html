@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles1.css">
+    <title>Edit Student Profile</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <button id="logout"><a href="logout.html">Logout</a></button>
+            <h1>Edit Student Profile</h1>
+            <nav>
+               <ul>
+                    <li><a href="home.html">Dashboard</a></li>
+                    <li><a href="..\jobSearch\index.html">Search for Jobs</a></li>
+                    <li><a href="view-applications.html">View Applications</a></li>
+               </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h2>Edit Your Profile</h2>
+            <form id="updateProfileForm">
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" name="firstName" required>
+
+                <label for="middleName">Middle Name:</label>
+                <input type="text" id="middleName" name="middleName">
+
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" name="lastName" required>
+
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob" required>
+
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender" required>
+                    <option value="">Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+
+                <label for="branch">Branch:</label>
+                <input type="text" id="branch" name="branch" required>
+
+                <label for="gradYear">Graduation Year:</label>
+                <input type="number" id="gradYear" name="gradYear" min="2024" required>
+
+                <label for="cgpa">CGPA:</label>
+                <input type="number" step="0.01" id="cgpa" name="cgpa" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="contactNumber">Contact Number:</label>
+                <input type="tel" id="contactNumber" name="contactNumber" required>
+
+                <label for="keywords">Profile/Job Search Keywords:</label>
+                <textarea id="keywords" name="keywords" rows="3"></textarea>
+
+                <label for="aboutMe">About Me Section:</label>
+                <textarea id="aboutMe" name="aboutMe" rows="4"></textarea>
+
+                <button type="submit">Update Profile</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Placement Management System</p>
+    </footer>
+</body>
+</html>

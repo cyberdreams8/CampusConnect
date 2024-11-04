@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles1.css">
+    <script src="add-recruiter.js"></script>
+
+    <title>Add Recruiter</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <button id="logout"><a href="logout.html">Logout</a></button>
+            <h1>Add Recruiter</h1>
+            <nav>
+               <ul>
+                    <li><a href="home.html">Dashboard</a></li>
+                    <li><a href="view-student.html">View/Add Students</a></li>
+                    <li><a href="">View Vacancies</a></li>
+               </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h2>Enter Recruiter Details</h2>
+            <form id="addRecruiterForm">
+                <label for="companyName">Company Name:</label>
+                <input type="text" id="companyName" name="companyName" required>
+
+                <label for="contactNumber">Contact Number:</label>
+                <input type="tel" id="contactNumber" name="contactNumber" required>
+
+                <label for="companyEmail">Company Email:</label>
+                <input type="email" id="companyEmail" name="companyEmail" required>
+
+                <label for="companyLocation">Company Location:</label>
+                <input type="text" id="companyLocation" name="companyLocation" required>
+
+                <button type="submit">Add Recruiter</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Placement Management System</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusConnect - Job Portal</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body class="bg-gray-100 font-sans">
+  
+    <!-- Header -->
+    <header class="bg-blue-600 text-white p-4 shadow-md">
+        
+        <div class="container mx-auto flex justify-between items-center">
+            
+            <h1 class="text-2xl font-bold"><span class="navbar-brand">CampusConnect</span></h1>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto mt-8">
+        <div class="text-center mb-8">
+            <h2 class="text-3xl font-bold text-gray-700">Welcome to CampusConnect</h2>
+            <p class="text-gray-500 mt-2">Your journey to find the perfect job starts here.</p>
+        </div>
+
+        <!-- Cards Section -->
+        <div class="flex justify-center gap-8 mb-8">
+            <!-- Card 1 -->
+            <div class="card w-80 bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                <div class="imgBx h-40 overflow-hidden">
+                    <img src="https://img.freepik.com/free-vector/fill-out-concept-illustration_114360-5450.jpg?w=740&t=st=1668258982~exp=1668259582~hmac=aac03dfc8eacc2c04fb6efe04f678cc6991144ac1581cb41863e94b4a0eca862" class="w-full h-full object-cover" alt="Fill Details" />
+                </div>
+                <div class="content mt-4">
+                    <h5 class="card-title text-xl font-semibold mb-2">Edit details</h5>
+                    <p class="text-gray-600">You can edit your details here.</p>
+                    <a href="edit-student-details.html" class="btn bg-blue-600 text-white rounded px-4 py-2 mt-4 inline-block shadow hover:shadow-md">Edit details</a>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card w-80 bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                <div class="imgBx h-40 overflow-hidden">
+                    <img src="https://img.freepik.com/free-vector/employees-cv-candidates-resume-corporate-workers-students-id-isolate-flat-design-element-job-applications-avatars-personal-information_335657-2605.jpg?w=740&t=st=1668259049~exp=1668259649~hmac=3813f784c2ae6608e53b1185b4199ef4f479cc242c23099cccdada2918db581d" class="w-full h-full object-cover" alt="View Profile" />
+                </div>
+                <div class="content mt-4">
+                    <h5 class="card-title text-xl font-semibold mb-2">Search for Jobs</h5>
+                    <p class="text-gray-600">Explore available job openings and apply.</p>
+                    <a href="../jobSearch/index.html" class="btn bg-blue-600 text-white rounded px-4 py-2 mt-4 inline-block shadow hover:shadow-md">View Jobs</a>
+                </div>
+            </div>
+            
+
+
+            <!-- Card 3 -->
+            <div class="card w-80 bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                <div class="imgBx h-40 overflow-hidden">
+                    <img src="https://img.freepik.com/free-vector/man-having-online-job-interview_52683-43379.jpg?w=740&t=st=1668259580~exp=1668260180~hmac=b500f8d435f89d0b96e1a4a741886f29cb16437b4074bccd41c31bb66f77acc9" class="w-full h-full object-cover" alt="View Jobs" />
+                </div>
+                <div class="content mt-4">
+                    <h5 class="card-title text-xl font-semibold mb-2">View your applications</h5>
+                    <p class="text-gray-600">Keep track of all your applications.</p>
+                    <a href="view-applications.html" class="btn bg-blue-600 text-white rounded px-4 py-2 mt-4 inline-block shadow hover:shadow-md">View Applications</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Carousel Section -->
+        <h2 class="text-center text-2xl font-bold mb-6 text-gray-700">Featured Job Listings</h2>
+        <div id="jobCarousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner bg-gray-50 p-4 rounded-lg shadow-md">
+                <div class="carousel-item active">
+                    <div class="flex justify-center gap-8">
+                        <div class="card w-80 bg-white shadow-lg rounded-lg p-4 mx-2">
+                            <div class="imgBx h-40 overflow-hidden">
+                                <img src="https://via.placeholder.com/300x200" class="w-full h-full object-cover" alt="Job 1" />
+                            </div>
+                            <div class="content mt-2">
+                                <h5 class="text-xl font-semibold">Software Engineer</h5>
+                                <p class="text-gray-600">Company ABC - Remote</p>
+                                <a href="#" class="btn bg-blue-600 text-white rounded px-4 py-2 mt-2 inline-block">Apply Now</a>
+                            </div>
+                        </div>
+                        <div class="card w-80 bg-white shadow-lg rounded-lg p-4 mx-2">
+                            <div class="imgBx h-40 overflow-hidden">
+                                <img src="https://via.placeholder.com/300x200" class="w-full h-full object-cover" alt="Job 2" />
+                            </div>
+                            <div class="content mt-2">
+                                <h5 class="text-xl font-semibold">Data Analyst</h5>
+                                <p class="text-gray-600">Company XYZ - Onsite</p>
+                                <a href="#" class="btn bg-blue-600 text-white rounded px-4 py-2 mt-2 inline-block">Apply Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="flex justify-center gap-8">
+                        <div class="card w-80 bg-white shadow-lg rounded-lg p-4 mx-2">
+                            <div class="imgBx h-40 overflow-hidden">
+                                <img src="https://via.placeholder.com/300x200" class="w-full h-full object-cover" alt="Job 3" />
+                            </div>
+                            <div class="content mt-2">
+                                <h5 class="text-xl font-semibold">UX/UI Designer</h5>
+                                <p class="text-gray-600">Company 123 - Hybrid</p>
+                                <a href="#" class="btn bg-blue-600 text-white rounded px-4 py-2 mt-2 inline-block">Apply Now</a>
+                            </div>
+                        </div>
+                        <div class="card w-80 bg-white shadow-lg rounded-lg p-4 mx-2">
+                            <div class="imgBx h-40 overflow-hidden">
+                                <img src="https://via.placeholder.com/300x200" class="w-full h-full object-cover" alt="Job 4" />
+                            </div>
+                            <div class="content mt-2">
+                                <h5 class="text-xl font-semibold">Product Manager</h5>
+                                <p class="text-gray-600">Company DEF - Remote</p>
+                                <a href="#" class="btn bg-blue-600 text-white rounded px-4 py-2 mt-2 inline-block">Apply Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#jobCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#jobCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-blue-600 text-white text-center p-4 mt-8">
+        <p>&copy; 2024 CampusConnect. All rights reserved. | <a href="#" class="hover:text-gray-200">Privacy Policy</a></p>
+    </footer>
+</body>
+</html>
+

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles1.css">
+    <script src="view-student.js"></script>
+
+    <title>View Students</title>
+</head>
+<body>
+    
+    
+    <header>
+        <div class="container">
+            <button id="logout"><a href="logout.html">Logout</a></button>
+            <h1>View Students</h1>
+            <nav>
+                <ul>
+                <li><a href="home.html">Dashboard</a></li>
+                <li><a href="view-recruiter.html">View/Add Recruiters</a></li>
+                <li><a href="">View Vacancies</a></li>
+                </ul> 
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h2>Student List</h2>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>UID</th>
+                        <th>Name</th>
+                        <th>Branch</th>
+                        <th>Graduation Year</th>
+                        <th>CGPA</th>
+                        <th>Email</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Data will be populated here by JavaScript -->
+                </tbody>
+            </table>
+            
+
+            <button onclick="window.location.href='add-student.html'" class="add-button">Add Student</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Placement Management System</p>
+    </footer>
+</body>
+</html>
