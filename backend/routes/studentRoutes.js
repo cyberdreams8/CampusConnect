@@ -21,6 +21,31 @@ router.get('/', async (req, res) => {
     }
 });
 
+
+// Route to add a new student
+router.post('/', async (req, res) => {
+    const { Uid, First_Name, Middle_Name, Last_Name, DOB, Gender, Branch, Graduation_Year, CGPA, Email, Contact_Number } = req.body;
+
+    // Validation for required fields
+    if (!Uid || !First_Name || !Last_Name || !DOB || !Gender || !Branch || !Graduation_Year || !CGPA || !Email || !Contact_Number) {
+        return res.status(400).json({ error: 'All fields are required.' });
+    }
+
+// SQL query to insert the new student
+const query = `
+        INSERT INTO Student (Uid, First_Name, Middle_Name, Last_Name, DOB, Gender, Branch, Graduation_Year, CGPA, Email, Contact_Number)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    `;
+
+try {
+        // Execute the query
+        await db.query(query, [Uid, First_Name, Middle_Name, Last_Name, DOB, Gender, Branch, Graduation_Year, CGPA, Email, Contact_Number]);
+        res.status(201).json({ message: 'Student added successfully!' });
+    } catch (err) {
+        console.error('Error adding student:', err.message);
+        res.status(500).json({ error: 'An error occurred while adding the student.' });
+    }
+});
 // You can add more routes for adding, updating, and deleting students as needed
 
 module.exports = router;
