@@ -35,7 +35,7 @@ router.post('/', async (req, res) => {
                 redirectUrl = '/pages/Recruiter-dashboard/home.html';
             } else if (role === 'student') {
                 redirectUrl = '/pages/Student-dashboard/home.html';
-            } else if (role === 'tpo-admin') {
+            } else if (role === 'admin') {
                 redirectUrl = '/pages/TPO-dashboard/home.html';
             } else {
                 return res.status(400).json({ success: false, message: 'Invalid role specified' });
