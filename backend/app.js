@@ -4,9 +4,11 @@ const dotenv = require('dotenv');
 const session = require('express-session');
 const db = require('./config/db');
 const studentRoutes = require('./routes/studentRoutes');
+const recruiterRoutes = require('./routes/recruiterRoutes')
 const jobSearchRoutes = require('./routes/jobSearchRoutes');
 const loginRoutes = require('./routes/loginRoutes');
 const recruiterProfileRoute = require('./routes/recruiterProfileRoute');
+const studentProfileRoute = require('./routes/studentProfileRoute');
 const authRoutes = require('./routes/authRoutes');
 const { isAuthenticated } = require('./middleware/authMiddleware'); // Import middleware
 
@@ -27,10 +29,12 @@ app.use(session({
 
 // Register routes
 app.use('/api/students', studentRoutes);
+app.use('/api/recruiters', recruiterRoutes);
 app.use('/api/jobs', jobSearchRoutes);
 app.use('/api/login', loginRoutes);
 app.use('/api', authRoutes);
 app.use('/api/recruiter', recruiterProfileRoute);
+app.use('/api/students', studentProfileRoute);
 
 // Static HTML file route
 app.get('/view-students', (req, res) => {
