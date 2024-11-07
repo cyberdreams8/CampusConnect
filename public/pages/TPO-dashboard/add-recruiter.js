@@ -1,27 +1,38 @@
-// add-recruiter.js
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('addRecruiterForm');
-    form.addEventListener('submit', function(event) {
-        event.preventDefault();
+document.getElementById('addRecruiterForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
 
-        const recruiterData = {
-            Recruiter_id: document.getElementById('recruiterId').value, // Add a recruiter ID field
-            Company_Name: document.getElementById('companyName').value,
-            Contact_No: document.getElementById('contactNumber').value,
-            Company_Email: document.getElementById('companyEmail').value,
-            Company_Location: document.getElementById('companyLocation').value
-        };
+    const recruiterId = document.getElementById('recruiterId').value;
 
-        fetch('http://localhost:3000/recruiters', {
+    const companyName = document.getElementById('companyName').value;
+    const contactNumber = document.getElementById('contactNumber').value;
+    const companyEmail = document.getElementById('companyEmail').value;
+    const companyLocation = document.getElementById('companyLocation').value;
+
+    try {
+        const response = await fetch('/api/recruiters', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(recruiterData)
-        })
-        .then(response => response.json())
-        .then(data => {
-            alert('Recruiter added successfully!');
-            window.location.href = 'view-recruiter.html'; // Redirect after adding
-        })
-        .catch(error => console.error('Error adding recruiter:', error));
-    });
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                recruiterId,
+                companyName,
+                contactNumber,
+                companyEmail,
+                companyLocation,
+            }),
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+            alert('Recruiter added successfully');
+            window.location.href = 'view-recruiter.html'; // Redirect to the recruiter list page
+        } else {
+            alert(`Error: ${result.error}`);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('There was an error adding the recruiter');
+    }
 });
