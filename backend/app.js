@@ -1,38 +1,50 @@
 const path = require('path');
 const express = require('express');
 const dotenv = require('dotenv');
-const db = require('./config/db'); // Ensure db is imported for query execution
-const studentRoutes = require('./routes/studentRoutes');
-const jobSearchRoutes = require('./routes/jobSearchRoutes'); // Import job search routes
-const loginRoutes = require('./routes/loginRoutes'); // Import the login routes
 const session = require('express-session');
+const db = require('./config/db');
+const studentRoutes = require('./routes/studentRoutes');
+const jobSearchRoutes = require('./routes/jobSearchRoutes');
+const loginRoutes = require('./routes/loginRoutes');
+const recruiterProfileRoute = require('./routes/recruiterProfileRoute');
+const authRoutes = require('./routes/authRoutes');
+const { isAuthenticated } = require('./middleware/authMiddleware'); // Import middleware
 
 dotenv.config();
 
 const app = express();
 app.use(express.json());
-app.use(express.static(path.join(__dirname, '../public'))); // Serve static files from the public directory
+app.use(express.static(path.join(__dirname, '../public')));
 
 app.use(session({
-    secret: process.env.SESSION_SECRET || 'your_secret_key', // store in environment variable for security
+    secret: process.env.SESSION_SECRET || 'your_secret_key',
     resave: false,
-    saveUninitialized: true,
-    cookie: { secure: false } // set to true if using HTTPS
+    saveUninitialized: false,
+    cookie: {
+        secure: process.env.NODE_ENV === 'production'
+    }
 }));
 
 // Register routes
-app.use('/api/students', studentRoutes); // Register students route
-app.use('/api/jobs', jobSearchRoutes); // Register job search route
-app.use('/api/login', loginRoutes); // Register the login route
+app.use('/api/students', studentRoutes);
+app.use('/api/jobs', jobSearchRoutes);
+app.use('/api/login', loginRoutes);
+app.use('/api', authRoutes);
+app.use('/api/recruiter', recruiterProfileRoute);
 
-// Route for view-students.html
+// Static HTML file route
 app.get('/view-students', (req, res) => {
     res.sendFile(path.join(__dirname, 'pages/TPO-dashboard/view-student.html'));
 });
 
-// Testing route to fetch all users (for demonstration purposes)
+// Protected route example
+app.get('/api/protected', isAuthenticated, (req, res) => {
+    res.json({ message: `Welcome, ${req.session.user.username}!`, role: req.session.user.role });
+});
+
+// Testing route to fetch all users
 app.get('/users', (req, res) => {
-    const query = 'SELECT username, role FROM Users'; // Adjust query as needed
+    const query = 'SELECT username, role FROM Users';
     db.query(query, (err, results) => {
         if (err) return res.status(500).json({ error: err.message });
         
@@ -40,20 +52,7 @@ app.get('/users', (req, res) => {
     });
 });
 
-// Start the server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
-});
-
-
-function isAuthenticated(req, res, next) {
-    if (req.session.user) {
-        return next();
-    }
-    res.status(401).json({ success: false, message: 'Unauthorized access' });
-}
-
-app.get('/api/protected', isAuthenticated, (req, res) => {
-    res.json({ message: `Welcome, ${req.session.user.username}!`, role: req.session.user.role });
 });

@@ -11,6 +11,7 @@ document.getElementById('loginForm').addEventListener('submit', async function (
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({ username, password, role }),
+        credentials: 'same-origin',  // Important! This ensures the session cookie is sent
     });
 
     const data = await response.json();

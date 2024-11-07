@@ -6,11 +6,13 @@ const db = require('../config/db');
 router.post('/', async (req, res) => {
     const { username, password, role } = req.body;
 
+    // Validate that username, password, and role are provided
     if (!username || !password || !role) {
         return res.status(400).json({ success: false, message: 'Role, Username, and Password are required' });
     }
 
     try {
+        // Query to check user credentials and role
         const query = `
             SELECT * FROM Users 
             WHERE username = ? AND password = ? AND role = ?
@@ -23,6 +25,9 @@ router.post('/', async (req, res) => {
                 username: results[0].username,
                 role: results[0].role
             };
+
+            // Debugging: Log session content
+            console.log("Session set:", req.session);  // Logs session data after login
 
             // Determine redirect URL based on the user's role
             let redirectUrl;
@@ -39,9 +44,10 @@ router.post('/', async (req, res) => {
             // Respond with user info and redirect URL
             res.status(200).json({ success: true, message: 'Login successful', user: req.session.user, redirectUrl });
         } else {
-            res.status(401).json({ success: false, message: 'Invalid username or password' });
+            res.status(401).json({ success: false, message: 'Invalid username, password, or role' });
         }
     } catch (err) {
+        console.error("Error during login:", err.message);
         res.status(500).json({ success: false, message: 'Server error', error: err.message });
     }
 });

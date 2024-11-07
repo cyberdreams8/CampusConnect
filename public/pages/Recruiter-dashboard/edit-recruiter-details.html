@@ -9,7 +9,7 @@
 <body>
     <header>
         <div class="container">
-            <button id="logout"><a href="logout.html">Logout</a></button>
+            <button id="logout">Logout</button>
             <h1>Update Recruiter</h1>
             <nav>
                 <ul>
@@ -28,29 +28,37 @@
                 <label for="recruiterId">Recruiter ID:</label>
                 <input type="text" id="recruiterId" name="recruiterId" required readonly>
 
-                
-                    <label for="companyName">Company Name:</label>
-                    <input type="text" id="companyName" name="companyName" required>
-    
-                    <label for="contactNo">Contact Number:</label>
-                    <input type="tel" id="contactNo" name="contactNo" required>
-    
-                    <label for="companyMail">Company Email:</label>
-                    <input type="email" id="companyMail" name="companyMail" required>
-    
-                    <label for="companyLocation">Company Location:</label>
-                    <input type="text" id="companyLocation" name="companyLocation" required>
-    
-                    <button type="submit">Update Recruiter</button>
-                </form>
-            </div>
-        </main>
-    
-        <footer>
-            <div class="container">
-                <p>&copy; 2024 Your Company. All rights reserved.</p>
-            </div>
-        </footer>
-    </body>
-    </html>
-    
+                <label for="companyName">Company Name:</label>
+                <input type="text" id="companyName" name="companyName" required>
+
+                <label for="contactNo">Contact Number:</label>
+                <input type="tel" id="contactNo" name="contactNo" required>
+
+                <label for="companyMail">Company Email:</label>
+                <input type="email" id="companyMail" name="companyMail" required>
+
+                <label for="companyLocation">Company Location:</label>
+                <input type="text" id="companyLocation" name="companyLocation" required>
+
+                <button type="submit" id="submit">Update Recruiter</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Your Company. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Script for handling the logout functionality and recruiter profile update -->
+    <script src="edit-recruiter-details.js" type="module"></script>
+    <script>
+        document.getElementById('logout').addEventListener('click', async () => {
+            // API call to destroy session on server
+            await fetch('/api/logout', { method: 'POST', credentials: 'include' });
+            window.location.href = 'logout.html';
+        });
+    </script>
+</body>
+</html>
