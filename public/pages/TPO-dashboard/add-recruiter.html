@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles1.css">
-    <script src="add-recruiter.js"></script>
-
+    <script src="add-recruiter.js" defer></script>  <!-- Added defer to ensure script loads after DOM -->
     <title>Add Recruiter</title>
 </head>
 <body>
@@ -27,6 +26,10 @@
         <div class="container">
             <h2>Enter Recruiter Details</h2>
             <form id="addRecruiterForm">
+
+                <label for="recruiterId">Recruiter ID:</label>
+                <input type="text" id="recruiterId" name="recruiterId" required>
+
                 <label for="companyName">Company Name:</label>
                 <input type="text" id="companyName" name="companyName" required>
 
