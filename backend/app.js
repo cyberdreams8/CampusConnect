@@ -10,6 +10,8 @@ const loginRoutes = require('./routes/loginRoutes');
 const recruiterProfileRoute = require('./routes/recruiterProfileRoute');
 const studentProfileRoute = require('./routes/studentProfileRoute');
 const authRoutes = require('./routes/authRoutes');
+const viewApplicationRoutes = require('./routes/viewApplicationRoutes');
+
 const { isAuthenticated } = require('./middleware/authMiddleware'); // Import middleware
 
 dotenv.config();
@@ -35,6 +37,8 @@ app.use('/api/login', loginRoutes);
 app.use('/api', authRoutes);
 app.use('/api/recruiter', recruiterProfileRoute);
 app.use('/api/students', studentProfileRoute);
+app.use('/api/applications', viewApplicationRoutes);
+
 
 // Static HTML file route
 app.get('/view-students', (req, res) => {
