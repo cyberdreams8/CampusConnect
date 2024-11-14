@@ -161,6 +161,21 @@ GRANT 'admin_role' TO 'admin_user'@'localhost';
 GRANT 'student_role' TO 'student_user'@'localhost';
 GRANT 'recruiter_role' TO 'recruiter_user'@'localhost';
 
+-- Insert 10 more rows into the Applications table
+INSERT INTO Applications (Application_id, Student_id, Vacancy_id, Status, Deadline) VALUES
+('4000000011', '2023300150', '3000000001', 'Pending', '2023-12-01'),
+('4000000012', '2023300151', '3000000001', 'Accepted', '2023-11-28'),
+('4000000013', '2023300152', '3000000001', 'Rejected', '2023-11-25'),
+('4000000014', '2023300153', '3000000002', 'Pending', '2023-11-18'),
+('4000000015', '2023300154', '3000000002', 'Pending', '2023-11-23'),
+('4000000016', '2023300150', '3000000003', 'Pending', '2023-12-05'),
+('4000000017', '2023300151', '3000000003', 'Accepted', '2023-11-10'),
+('4000000018', '2023300152', '3000000004', 'Pending', '2023-12-15'),
+('4000000019', '2023300153', '3000000004', 'Rejected', '2023-11-12'),
+('4000000020', '2023300154', '3000000005', 'Pending', '2023-11-30');
+
+-- Now we have 10 additional rows with recurring Vacancy_id values (3 applications linked to the same Vacancy_id in some cases).
+
 -- Apply privileges
 FLUSH PRIVILEGES;
 
