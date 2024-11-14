@@ -13,17 +13,21 @@
 </head>
 <body class="bg-gray-100 font-sans">
 
-    <!-- Header -->
-    <header class="bg-blue-600 text-white p-4 shadow-md">
-        <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-2xl font-bold"><span class="navbar-brand">CampusConnect</span></h1>
-        </div>
+    <!-- Top Bar with Logo and Logout -->
+    <header class="bg-blue-600 text-white p-4 shadow-md flex justify-between items-center">
+        <a href="index.html" class="flex items-center">
+            <img src="logo.png" alt="CampusConnect Logo" class="h-10 w-auto">
+            <!-- Replace "logo.png" with the actual logo image path -->
+        </a>
+        <a href="../LandingPage/index.html" class="text-white text-xl hover:underline">
+            <i class="fas fa-sign-out-alt mr-2"></i>Logout
+        </a>
     </header>
 
     <!-- Main Content -->
     <main class="container mx-auto mt-8">
         <div class="text-center mb-8">
-            <h2 class="text-3xl font-bold text-gray-700">Welcome to CampusConnect</h2>
+            <h2 class="text-3xl font-bold text-gray-700">Welcome to Recruiter Dashboard</h2>
             <p class="text-gray-500 mt-2">Your journey to find the perfect job starts here.</p>
         </div>
 
@@ -37,7 +41,7 @@
                 <div class="content mt-4">
                     <h5 class="card-title text-xl font-semibold mb-2">Edit Company Profile</h5>
                     <p class="text-gray-600">You can edit your details here.</p>
-                    <a href="edit-recruiter-details.html" class="btn bg-blue-600 text-white rounded px-4 py-2 mt-4 inline-block shadow hover:shadow-md">Edit company Profile</a>
+                    <a href="edit-recruiter-details.html" class="btn bg-blue-600 text-white rounded px-4 py-2 mt-4 inline-block shadow hover:shadow-md">Edit Company Profile</a>
                 </div>
             </div>
 
@@ -49,7 +53,7 @@
                 <div class="content mt-4">
                     <h5 class="card-title text-xl font-semibold mb-2">View Student Applications</h5>
                     <p class="text-gray-600">View all the students who have applied.</p>
-                    <a href="view-applications.html" class="btn bg-blue-600 text-white rounded px-4 py-2 mt-4 inline-block shadow hover:shadow-md">View student applications</a>
+                    <a href="view-applications.html" class="btn bg-blue-600 text-white rounded px-4 py-2 mt-4 inline-block shadow hover:shadow-md">View Student Applications</a>
                 </div>
             </div>
 
@@ -60,80 +64,79 @@
                 </div>
                 <div class="content mt-4">
                     <h5 class="card-title text-xl font-semibold mb-2">Post Jobs</h5>
-                    <p class="text-gray-600">Have a vacancy, post here!.</p>
+                    <p class="text-gray-600">Have a vacancy? Post here!</p>
                     <a href="add-job.html" class="btn bg-blue-600 text-white rounded px-4 py-2 mt-4 inline-block shadow hover:shadow-md">Post Jobs</a>
                 </div>
             </div>
         </div>
 
-        <!-- Carousel Section -->
-        <h2 class="text-center text-2xl font-bold mb-6 text-gray-700">Featured Job Listings</h2>
-        <div id="jobCarousel" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner bg-gray-50 p-4 rounded-lg shadow-md">
-                <div class="carousel-item active">
-                    <div class="flex justify-center gap-8">
-                        <div class="card w-80 bg-white shadow-lg rounded-lg p-4 mx-2">
-                            <div class="imgBx h-40 overflow-hidden">
-                                <img src="https://via.placeholder.com/300x200" class="w-full h-full object-cover" alt="Job 1" />
-                            </div>
-                            <div class="content mt-2">
-                                <h5 class="text-xl font-semibold">Software Engineer</h5>
-                                <p class="text-gray-600">Company ABC - Remote</p>
-                                <a href="#" class="btn bg-blue-600 text-white rounded px-4 py-2 mt-2 inline-block">Apply Now</a>
-                            </div>
-                        </div>
-                        <div class="card w-80 bg-white shadow-lg rounded-lg p-4 mx-2">
-                            <div class="imgBx h-40 overflow-hidden">
-                                <img src="https://via.placeholder.com/300x200" class="w-full h-full object-cover" alt="Job 2" />
-                            </div>
-                            <div class="content mt-2">
-                                <h5 class="text-xl font-semibold">Data Analyst</h5>
-                                <p class="text-gray-600">Company XYZ - Onsite</p>
-                                <a href="#" class="btn bg-blue-600 text-white rounded px-4 py-2 mt-2 inline-block">Apply Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="flex justify-center gap-8">
-                        <div class="card w-80 bg-white shadow-lg rounded-lg p-4 mx-2">
-                            <div class="imgBx h-40 overflow-hidden">
-                                <img src="https://via.placeholder.com/300x200" class="w-full h-full object-cover" alt="Job 3" />
-                            </div>
-                            <div class="content mt-2">
-                                <h5 class="text-xl font-semibold">UX/UI Designer</h5>
-                                <p class="text-gray-600">Company 123 - Hybrid</p>
-                                <a href="#" class="btn bg-blue-600 text-white rounded px-4 py-2 mt-2 inline-block">Apply Now</a>
-                            </div>
-                        </div>
-                        <div class="card w-80 bg-white shadow-lg rounded-lg p-4 mx-2">
-                            <div class="imgBx h-40 overflow-hidden">
-                                <img src="https://via.placeholder.com/300x200" class="w-full h-full object-cover" alt="Job 4" />
-                            </div>
-                            <div class="content mt-2">
-                                <h5 class="text-xl font-semibold">Product Manager</h5>
-                                <p class="text-gray-600">Company DEF - Remote</p>
-                                <a href="#" class="btn bg-blue-600 text-white rounded px-4 py-2 mt-2 inline-block">Apply Now</a>
-                            </div>
-                        </div>
-                    </div>
+        <!-- Recent Job Postings -->
+        <h2 class="text-center text-2xl font-bold mb-6 text-gray-700">Recent Job Postings</h2>
+        <div class="flex justify-center gap-8 mb-8">
+            <div class="card w-80 bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                <div class="content mt-4">
+                    <h5 class="card-title text-xl font-semibold mb-2 text-blue-600">Software Engineer</h5>
+                    <p class="text-gray-600">Posted: 2 days ago</p>
+                    <p class="text-gray-600">Location: Remote</p>
+                    <p class="text-gray-600">Applicants: 15</p>
                 </div>
             </div>
-            <a class="carousel-control-prev" href="#jobCarousel" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#jobCarousel" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
+            <div class="card w-80 bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                <div class="content mt-4">
+                    <h5 class="card-title text-xl font-semibold mb-2 text-blue-600">Data Analyst</h5>
+                    <p class="text-gray-600">Posted: 5 days ago</p>
+                    <p class="text-gray-600">Location: Onsite</p>
+                    <p class="text-gray-600">Applicants: 30</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Application Status Summary -->
+        <h2 class="text-center text-2xl font-bold mb-6 text-gray-700">Application Status Summary</h2>
+        <div class="flex justify-center gap-8 mb-8">
+            <div class="card w-80 bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                <div class="content mt-4">
+                    <h5 class="card-title text-xl font-semibold mb-2 text-blue-600">Application for Software Engineer</h5>
+                    <p class="text-gray-600">Applicants Processed: 12</p>
+                    <p class="text-gray-600">Interviews Scheduled: 5</p>
+                    <p class="text-gray-600">Job Status: Open</p>
+                </div>
+            </div>
+            <div class="card w-80 bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                <div class="content mt-4">
+                    <h5 class="card-title text-xl font-semibold mb-2 text-blue-600">Application for Data Analyst</h5>
+                    <p class="text-gray-600">Applicants Processed: 25</p>
+                    <p class="text-gray-600">Interviews Scheduled: 8</p>
+                    <p class="text-gray-600">Job Status: Closed</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Upcoming Interviews -->
+        <h2 class="text-center text-2xl font-bold mb-6 text-gray-700">Upcoming Interviews</h2>
+        <div class="flex justify-center gap-8 mb-8">
+            <div class="card w-80 bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                <div class="content mt-4">
+                    <h5 class="card-title text-xl font-semibold mb-2 text-blue-600">Software Engineer - Interview</h5>
+                    <p class="text-gray-600">Date: 15th November</p>
+                    <p class="text-gray-600">Time: 10:00 AM</p>
+                    <p class="text-gray-600">Location: Online</p>
+                </div>
+            </div>
+            <div class="card w-80 bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                <div class="content mt-4">
+                    <h5 class="card-title text-xl font-semibold mb-2 text-blue-600">Data Analyst - Interview</h5>
+                    <p class="text-gray-600">Date: 18th November</p>
+                    <p class="text-gray-600">Time: 2:00 PM</p>
+                    <p class="text-gray-600">Location: Onsite</p>
+                </div>
+            </div>
         </div>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-blue-600 text-white text-center p-4 mt-8">
-        <p>&copy; 2024 CampusConnect. All rights reserved. | <a href="#" class="hover:text-gray-200">Privacy Policy</a></p>
+    <footer class="bg-gray-800 text-white text-center p-4 mt-8">
+        <p>&copy; 2024 CampusConnect. All Rights Reserved.</p>
     </footer>
 </body>
 </html>
-
