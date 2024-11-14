@@ -101,6 +101,9 @@ footer a:hover {
     box-shadow: 0px 6px 12px rgba(0, 115, 177, 0.4);
 }
 
+
+
+
 /* Custom Utility Classes */
 .text-shadow {
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
@@ -112,6 +115,163 @@ footer a:hover {
 
 .rounded-full {
     border-radius: 50%;
+}
+/* Featured Job Listings Section */
+.featured-jobs {
+    padding: 3rem 2rem;
+    background-color: #f3f4f6;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 3rem;
+}
+
+.featured-jobs h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #1e3a8a;
+    margin-bottom: 1.5rem;
+}
+
+/* Job Cards Layout */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+/* Job Card Styles */
+.card {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Job Title */
+.card h5 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 0.5rem;
+}
+
+/* Job Description */
+.card p {
+    font-size: 1rem;
+    color: #4b5563;
+    margin: 0.5rem 0;
+}
+
+/* Job Salary and Experience */
+.card .text-gray-500 {
+    font-size: 0.95rem;
+    color: #6b7280;
+}
+
+/* Media Query for Mobile */
+@media (max-width: 768px) {
+    .featured-jobs {
+        padding: 2rem;
+    }
+    
+    .card {
+        padding: 1.5rem;
+    }
+    
+    .card h5 {
+        font-size: 1.1rem;
+    }
+
+    .card p {
+        font-size: 0.95rem;
+    }
+}
+
+
+/* Additional Section Styles */
+.upcoming-events, .announcements {
+    background-color: #f8f9fa;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+/* Title Styling */
+.upcoming-events h2, .announcements h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #1e3a8a;
+    margin-bottom: 1rem;
+}
+
+
+/* Event List Styling */
+.upcoming-events ul, .announcements ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.upcoming-events li, .announcements li {
+    background-color: #ffffff;
+    margin: 0.5rem 0;
+    padding: 1rem;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    font-size: 1rem;
+    color: #4b5563;
+    transition: all 0.3s ease;
+}
+
+.upcoming-events li:hover, .announcements li:hover {
+    background-color: #f0f4f8;
+    transform: translateY(-5px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Event Date Styling */
+.upcoming-events li span, .announcements li span {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #6b7280;
+}
+
+/* Bullet Points for Upcoming Events */
+.upcoming-events li::before {
+    content: "📅";
+    margin-right: 10px;
+    font-size: 1.2rem;
+    color: #3b82f6;
+}
+
+/* Bullet Points for Announcements */
+.announcements li::before {
+    content: "📢";
+    margin-right: 10px;
+    font-size: 1.2rem;
+    color: #f59e0b;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .upcoming-events, .announcements {
+        padding: 1rem;
+    }
+
+    .upcoming-events li, .announcements li {
+        font-size: 0.9rem;
+    }
 }
 
 /* Responsive Adjustments */
@@ -126,4 +286,3 @@ footer a:hover {
         font-size: 1.5rem;
     }
 }
-
