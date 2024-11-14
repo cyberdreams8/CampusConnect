@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CampusConnect - Job Portal</title>
+    <title>CampusConnect - Job Portal & Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="home.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body class="bg-gray-100 font-sans">
 
-    <!-- Header -->
-    <header class="bg-blue-600 text-white p-4 shadow-md">
+    <!-- Unified Header -->
+    <header class="bg-blue-600 text-white p-4 shadow-md flex justify-between items-center">
         <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-2xl font-bold"><span class="navbar-brand">CampusConnect</span></h1>
+            <img src="logo.png" alt="CampusConnect Logo" class="h-20">
+            <a href="landing-page.html" class="text-white bg-red-600 px-4 py-2 rounded-lg shadow hover:shadow-lg transition">Log Out</a>
         </div>
     </header>
 
@@ -25,117 +25,101 @@
     <main class="container mx-auto mt-8">
         <div class="text-center mb-8">
             <h2 class="text-3xl font-bold text-gray-700">Welcome to CampusConnect</h2>
-            <p class="text-gray-500 mt-2">Your journey to find the perfect job starts here.</p>
+            <p class="text-gray-500 mt-2">Your journey to efficient job management starts here.</p>
         </div>
 
         <!-- Cards Section -->
         <div class="flex justify-center gap-8 mb-8">
-            <!-- Card 1 -->
+            <!-- Card: Manage Recruiters -->
             <div class="card w-80 bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
                 <div class="imgBx h-40 overflow-hidden">
-                    <img src="https://img.freepik.com/free-vector/employees-cv-candidates-resume-corporate-workers-students-id-isolate-flat-design-element-job-applications-avatars-personal-information_335657-2605.jpg?w=740&t=st=1668259049~exp=1668259649~hmac=3813f784c2ae6608e53b1185b4199ef4f479cc242c23099cccdada2918db581d" class="w-full h-full object-cover" alt="View Profile" />
+                    <img src="https://img.freepik.com/free-vector/employees-cv-candidates-resume-corporate-workers-students-id-isolate-flat-design-element-job-applications-avatars-personal-information_335657-2605.jpg" class="w-full h-full object-cover" alt="Manage Recruiters" />
                 </div>
                 <div class="content mt-4">
-                    <h5 class="card-title text-xl font-semibold mb-2">View/Add Recruiters</h5>
-                    <p class="text-gray-600">You can view recruiters and add recruiters to the placement process.</p>
-                    <a href="view-recruiter.html" class="btn bg-blue-600 text-white rounded px-4 py-2 mt-4 inline-block shadow hover:shadow-md">View/Add Recruiters</a>
-                </div>
-            </div>
-            
-
-            <!-- Card 2 -->
-            <div class="card w-80 bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-                <div class="imgBx h-40 overflow-hidden">
-                    <img src="https://img.freepik.com/free-vector/fill-out-concept-illustration_114360-5450.jpg?w=740&t=st=1668258982~exp=1668259582~hmac=aac03dfc8eacc2c04fb6efe04f678cc6991144ac1581cb41863e94b4a0eca862" class="w-full h-full object-cover" alt="Fill Details" />
-                </div>
-                <div class="content mt-4">
-                    <h5 class="card-title text-xl font-semibold mb-2">View/Add Students</h5>
-                    <p class="text-gray-600">You can view students and add students to the placement process.</p>
-                    <a href="view-student.html" class="btn bg-blue-600 text-white rounded px-4 py-2 mt-4 inline-block shadow hover:shadow-md">View/Add Students</a>
+                    <h5 class="card-title text-xl font-semibold mb-2">Manage Recruiters</h5>
+                    <p class="text-gray-600">View and add recruiters for the placement process.</p>
+                    <a href="view-recruiter.html" class="btn bg-blue-600 text-white rounded px-4 py-2 mt-4 inline-block shadow hover:shadow-md">Manage Recruiters</a>
                 </div>
             </div>
 
-            <!-- Card 3 -->
+            <!-- Card: Manage Students -->
             <div class="card w-80 bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
                 <div class="imgBx h-40 overflow-hidden">
-                    <img src="https://img.freepik.com/free-vector/man-having-online-job-interview_52683-43379.jpg?w=740&t=st=1668259580~exp=1668260180~hmac=b500f8d435f89d0b96e1a4a741886f29cb16437b4074bccd41c31bb66f77acc9" class="w-full h-full object-cover" alt="View Jobs" />
+                    <img src="https://img.freepik.com/free-vector/fill-out-concept-illustration_114360-5450.jpg" class="w-full h-full object-cover" alt="Manage Students" />
                 </div>
                 <div class="content mt-4">
-                    <h5 class="card-title text-xl font-semibold mb-2">View Vacancies</h5>
-                    <p class="text-gray-600">You can view the vacancies posted by recruiting companies.</p>
-                    <a href="/view_jobs" class="btn bg-blue-600 text-white rounded px-4 py-2 mt-4 inline-block shadow hover:shadow-md">View Vacancies</a>
+                    <h5 class="card-title text-xl font-semibold mb-2">Manage Students</h5>
+                    <p class="text-gray-600">View and add students to the placement process.</p>
+                    <a href="view-student.html" class="btn bg-blue-600 text-white rounded px-4 py-2 mt-4 inline-block shadow hover:shadow-md">Manage Students</a>
+                </div>
+            </div>
+
+            <!-- Card: View Placements -->
+            <div class="card w-80 bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                <div class="imgBx h-40 overflow-hidden">
+                    <img src="https://img.freepik.com/free-vector/man-having-online-job-interview_52683-43379.jpg" class="w-full h-full object-cover" alt="View Placements" />
+                </div>
+                <div class="content mt-4">
+                    <h5 class="card-title text-xl font-semibold mb-2">View Placements</h5>
+                    <p class="text-gray-600">Track placements and student progress.</p>
+                    <a href="view-placements.html" class="btn bg-blue-600 text-white rounded px-4 py-2 mt-4 inline-block shadow hover:shadow-md">View Placements</a>
                 </div>
             </div>
         </div>
 
-        <!-- Carousel Section -->
-        <h2 class="text-center text-2xl font-bold mb-6 text-gray-700">Featured Job Listings</h2>
-        <div id="jobCarousel" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner bg-gray-50 p-4 rounded-lg shadow-md">
-                <div class="carousel-item active">
-                    <div class="flex justify-center gap-8">
-                        <div class="card w-80 bg-white shadow-lg rounded-lg p-4 mx-2">
-                            <div class="imgBx h-40 overflow-hidden">
-                                <img src="https://via.placeholder.com/300x200" class="w-full h-full object-cover" alt="Job 1" />
-                            </div>
-                            <div class="content mt-2">
-                                <h5 class="text-xl font-semibold">Software Engineer</h5>
-                                <p class="text-gray-600">Company ABC - Remote</p>
-                                <a href="#" class="btn bg-blue-600 text-white rounded px-4 py-2 mt-2 inline-block">Apply Now</a>
-                            </div>
-                        </div>
-                        <div class="card w-80 bg-white shadow-lg rounded-lg p-4 mx-2">
-                            <div class="imgBx h-40 overflow-hidden">
-                                <img src="https://via.placeholder.com/300x200" class="w-full h-full object-cover" alt="Job 2" />
-                            </div>
-                            <div class="content mt-2">
-                                <h5 class="text-xl font-semibold">Data Analyst</h5>
-                                <p class="text-gray-600">Company XYZ - Onsite</p>
-                                <a href="#" class="btn bg-blue-600 text-white rounded px-4 py-2 mt-2 inline-block">Apply Now</a>
-                            </div>
-                        </div>
-                    </div>
+        <!-- Featured Job Listings -->
+        <section class="featured-jobs mb-8">
+            <h2 class="text-center text-2xl font-bold text-gray-700">Featured Placement Opportunities</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-6">
+                <div class="card bg-white shadow-lg rounded-lg p-6">
+                    <h5 class="text-xl font-semibold">Software Engineer</h5>
+                    <p class="text-gray-600">Infosys - Remote</p>
+                    <p class="text-gray-500">Salary: $90,000/year</p>
+                    <p class="text-gray-500">Experience: 3+ years</p>
                 </div>
-                <div class="carousel-item">
-                    <div class="flex justify-center gap-8">
-                        <div class="card w-80 bg-white shadow-lg rounded-lg p-4 mx-2">
-                            <div class="imgBx h-40 overflow-hidden">
-                                <img src="https://via.placeholder.com/300x200" class="w-full h-full object-cover" alt="Job 3" />
-                            </div>
-                            <div class="content mt-2">
-                                <h5 class="text-xl font-semibold">UX/UI Designer</h5>
-                                <p class="text-gray-600">Company 123 - Hybrid</p>
-                                <a href="#" class="btn bg-blue-600 text-white rounded px-4 py-2 mt-2 inline-block">Apply Now</a>
-                            </div>
-                        </div>
-                        <div class="card w-80 bg-white shadow-lg rounded-lg p-4 mx-2">
-                            <div class="imgBx h-40 overflow-hidden">
-                                <img src="https://via.placeholder.com/300x200" class="w-full h-full object-cover" alt="Job 4" />
-                            </div>
-                            <div class="content mt-2">
-                                <h5 class="text-xl font-semibold">Product Manager</h5>
-                                <p class="text-gray-600">Company DEF - Remote</p>
-                                <a href="#" class="btn bg-blue-600 text-white rounded px-4 py-2 mt-2 inline-block">Apply Now</a>
-                            </div>
-                        </div>
-                    </div>
+                <div class="card bg-white shadow-lg rounded-lg p-6">
+                    <h5 class="text-xl font-semibold">Data Analyst</h5>
+                    <p class="text-gray-600">TechMahindra - Onsite</p>
+                    <p class="text-gray-500">Salary: $75,000/year</p>
+                    <p class="text-gray-500">Experience: 2+ years</p>
+                </div>
+                <div class="card bg-white shadow-lg rounded-lg p-6">
+                    <h5 class="text-xl font-semibold">UX/UI Designer</h5>
+                    <p class="text-gray-600">JPMC - Hybrid</p>
+                    <p class="text-gray-500">Salary: $85,000/year</p>
+                    <p class="text-gray-500">Experience: 3+ years</p>
+                </div>
+                <div class="card bg-white shadow-lg rounded-lg p-6">
+                    <h5 class="text-xl font-semibold">Product Manager</h5>
+                    <p class="text-gray-600">TCS - Remote</p>
+                    <p class="text-gray-500">Salary: $100,000/year</p>
+                    <p class="text-gray-500">Experience: 5+ years</p>
                 </div>
             </div>
-            <a class="carousel-control-prev" href="#jobCarousel" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#jobCarousel" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
+        </section>
+
+        <!-- Additional Information -->
+        <div class="upcoming-events mb-8">
+            <h2 class="text-center text-2xl font-bold text-gray-700">Upcoming Events</h2>
+            <ul class="text-center mt-4">
+                <li>TechTalk: AI & Machine Learning - <span>20th Nov, 2024</span></li>
+                <li>Campus Hiring Drive - <span>5th Dec, 2024</span></li>
+            </ul>
+        </div>
+
+        <div class="announcements mb-8">
+            <h2 class="text-center text-2xl font-bold text-gray-700">Announcements</h2>
+            <ul class="text-center mt-4">
+                <li>New batch of students added for upcoming placements.</li>
+                <li>Register for the upcoming skill-building workshops.</li>
+            </ul>
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-blue-600 text-white text-center p-4 mt-8">
+    <!-- Unified Footer -->
+    <footer class="bg-blue-600 text-white text-center p-4">
         <p>&copy; 2024 CampusConnect. All rights reserved. | <a href="#" class="hover:text-gray-200">Privacy Policy</a></p>
     </footer>
+
 </body>
 </html>
-
