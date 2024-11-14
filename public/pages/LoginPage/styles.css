@@ -1,178 +1,136 @@
-/* General Reset */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+/* General styling */
+body.login-page {
+    background-color: #1a1f36;
     font-family: 'Poppins', sans-serif;
-}
-
-/* Body Styling */
-body {
+    color: #fff;
     display: flex;
-    justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background: #f3f6fb;
+    justify-content: center;
+    height: 100vh;
     margin: 0;
 }
 
-/* Container Styling */
+/* Container styling */
 .container {
     display: flex;
-    flex-direction: row;
-    width: 100%;
-    max-width: 900px;
-    height: 80vh;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-    border-radius: 12px;
+    max-width: 800px;
+    width: 90%;
+    border-radius: 8px;
     overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Left Panel Styling */
-.left-panel {
-    width: 50%;
-    background: linear-gradient(135deg, #0a66c2, #004182);
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 30px;
-}
-
-.welcome-message {
-    text-align: center;
-    max-width: 300px;
-}
-
-.welcome-message h2 {
-    font-size: 28px;
-    margin-bottom: 10px;
-    font-weight: 600;
-}
-
-.welcome-message p {
-    font-size: 16px;
-    line-height: 1.6;
-}
-
-/* Right Panel Styling */
-.right-panel {
-    width: 50%;
+.left-panel, .right-panel {
     padding: 40px;
-    background-color: white;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+}
+
+.left-panel {
+    background-color: #2a2e5b;
+    width: 45%;
+}
+
+.right-panel {
+    background-color: #fff;
+    width: 55%;
+    color: #333;
 }
 
 .right-panel h1 {
-    font-size: 26px;
-    color: #333333;
     margin-bottom: 20px;
+    font-size: 2rem;
+    color: #1a1f36;
 }
 
-/* Form Styling */
-.form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 100%;
-    max-width: 350px;
+/* Welcome message styling */
+.welcome-message h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #fff;
 }
 
-.input-group {
-    display: flex;
-    flex-direction: column;
+.welcome-message p {
+    font-size: 1rem;
+    margin-bottom: 25px;
+    color: #d1d4e0;
 }
 
-.input-group label {
-    font-size: 14px;
-    color: #57697d;
-    margin-bottom: 5px;
-}
-
-.input-group input, .dropdown {
-    padding: 14px;
-    font-size: 14px;
-    border: 1px solid #dfe3e8;
-    border-radius: 8px;
-    background-color: #f0f4f8;
-    color: #333333;
-    transition: border-color 0.3s;
-}
-
-.input-group input:focus, .dropdown:focus {
-    border-color: #0a66c2;
-    outline: none;
-}
-
-.dropdown {
-    appearance: none;
-    background-image: url('data:image/svg+xml,%3Csvg fill="%2357697d" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M7 10l5 5 5-5H7z"/%3E%3C/svg%3E');
-    background-repeat: no-repeat;
-    background-position: right 12px center;
-}
-
-/* Button Styling */
-.login-button {
-    padding: 14px;
-    font-size: 16px;
-    color: white;
-    background-color: #0a66c2;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.login-button:hover {
-    background-color: #004182;
-}
-
-/* Signup Prompt Styling */
-.signup-prompt {
-    font-size: 14px;
-    color: #57697d;
-    text-align: center;
-    margin-top: 10px;
-}
-
-.signup-prompt a {
-    color: #0a66c2;
+.back-to-site {
+    color: #91a0f3;
     text-decoration: none;
     font-weight: 500;
 }
 
-/* Footer Text */
-.footer-text {
-    font-size: 12px;
-    color: #57697d;
-    text-align: center;
-    margin-top: 20px;
+.back-to-site:hover {
+    text-decoration: underline;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-        height: auto;
-        max-width: 100%;
-        border-radius: 8px;
-    }
+/* Input group styling */
+.input-group {
+    width: 100%;
+    margin-bottom: 20px;
+}
 
-    .left-panel {
-        width: 100%;
-        padding: 20px;
-        height: 200px;
-        display: flex;
-        align-items: flex-start;
-        justify-content: center;
-        text-align: center;
-    }
+.input-group label {
+    font-size: 1rem;
+    color: #333;
+}
 
-    .right-panel {
-        width: 100%;
-        padding: 30px;
-    }
+.input-group input, .input-group select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.dropdown {
+    background-color: #f9f9f9;
+}
+
+.input-group input:focus, .input-group select:focus {
+    border-color: #91a0f3;
+    outline: none;
+}
+
+/* Button styling */
+.login-button {
+    background-color: #4a63e7;
+    color: #fff;
+    font-size: 1rem;
+    padding: 10px 0;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.login-button:hover {
+    background-color: #3848c8;
+}
+
+/* Footer and prompt styling */
+.signup-prompt {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.signup-prompt a {
+    color: #4a63e7;
+    text-decoration: none;
+}
+
+.signup-prompt a:hover {
+    text-decoration: underline;
+}
+
+.footer-text {
+    margin-top: 25px;
+    font-size: 0.8rem;
+    color: #999;
 }

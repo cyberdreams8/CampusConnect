@@ -34,46 +34,50 @@ document.addEventListener("DOMContentLoaded", function () {
             const jobCard = document.createElement('div');
             jobCard.classList.add('job-card');
             jobCard.innerHTML = `
-                <div class="job-card-header">
-                    <h3>${job.Job_Title}</h3>
-                    <p>${job.Company_Name} • ${job.JobType} • ${job.YoE} years of experience</p>
-                </div>
-                <div class="job-details">
-                    <p>Base Package: $${job.Base_Package}K</p>
-                    <div class="tags">
-                        <span class="tag">CGPA: ${job.MinCGPA}</span>
-                        <span class="tag">Closing by: ${job.Closing_Deadline}</span>
+                <div class="flex items-center space-x-4 job-card-header">
+                    <div class="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center overflow-hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-500" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 12c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm0 2c-3.87 0-7 3.13-7 7v1h14v-1c0-3.87-3.13-7-7-7z"/>
+                        </svg>
                     </div>
+                    <div>
+                        <h3>${job.Job_Title}</h3>
+                        <p>${job.Company_Name} • ${job.JobType} • ${job.YoE} YoE</p>
+                    </div>
+                </div>
+                <p class="mt-2">Base Package: ${job.Base_Package} LPA</p>
+                <div class="tags mt-2">
+                    <span class="tag">Min CGPA: ${job.MinCGPA}</span>
+                    <span class="tag">Closing by: ${formatDate(job.Closing_Deadline)}</span>
                 </div>
             `;
             jobCardsContainer.appendChild(jobCard);
         });
 
-        updatePaginationControls(totalPages);
-    }
-
-    function updatePaginationControls(totalPages) {
-        paginationControls.style.display = totalPages > 1 ? 'flex' : 'none';
         pageIndicator.textContent = `Page ${currentPage} of ${totalPages}`;
-        document.getElementById('prevButton').disabled = currentPage === 1;
-        document.getElementById('nextButton').disabled = currentPage === totalPages;
+        paginationControls.style.display = totalPages > 1 ? 'flex' : 'none';
     }
 
-    document.getElementById('prevButton').addEventListener('click', () => {
+    function formatDate(isoDate) {
+        const date = new Date(isoDate);
+        return `${date.getMonth() + 1}-${date.getDate()}-${date.getFullYear()}`;
+    }
+
+    document.getElementById("jobSearchForm").addEventListener("submit", function (e) {
+        e.preventDefault();
+        currentPage = 1;
+        performSearch();
+    });
+
+    document.getElementById("prevButton").addEventListener("click", function () {
         if (currentPage > 1) {
             currentPage--;
             performSearch();
         }
     });
 
-    document.getElementById('nextButton').addEventListener('click', () => {
+    document.getElementById("nextButton").addEventListener("click", function () {
         currentPage++;
-        performSearch();
-    });
-
-    document.getElementById('jobSearchForm').addEventListener('submit', function (event) { // Use 'jobSearchForm' instead of 'search-form'
-        event.preventDefault();
-        currentPage = 1;
         performSearch();
     });
 });
